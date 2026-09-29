@@ -1,0 +1,14 @@
+{
+  "component": "button",
+  "tokens": {
+    "background": "primary",
+    "text": "primary-foreground",
+    "focus-ring": "ring",
+    "spacing-inline": "space.4",
+    "radius": "radius.md"
+  },
+  "variants": ["default", "hover", "active", "disabled", "loading"],
+  "sizes": ["sm", "md", "lg"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

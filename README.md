@@ -6,11 +6,10 @@
 
 ## 快速开始
 
-当前处于**设计令牌**阶段。令牌已落地，尚无可运行的组件。后续步骤：
+当前处于**组件契约**阶段。令牌与三份基础契约已落地，尚无可运行的组件。后续步骤：
 
-1. 编写组件契约（`src/contracts/`）
-2. 实现组件（`src/components/`）
-3. 在展示站中验收（`src/showcase/`）
+1. 实现 Button、Input、Card（`src/components/`）
+2. 在展示站中验收（`src/showcase/`）
 
 进度看板见 `docs/STATUS.md`，组件清单见 `docs/COMPONENTS.md`，设计约定见 `docs/CONVENTIONS.md`。
 
@@ -35,6 +34,7 @@
 
 | 项 | 值 |
 |----|----|
-| 阶段 | 设计令牌 |
+| 阶段 | 组件契约 |
 | 组件数 | 0 |
+| 契约数 | 3 |
 | 令牌数 | 136 |

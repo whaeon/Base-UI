@@ -1,0 +1,14 @@
+{
+  "component": "card",
+  "tokens": {
+    "background": "card",
+    "text": "card-foreground",
+    "border": "border",
+    "radius": "radius.lg",
+    "shadow": "shadow.md",
+    "spacing": "space.6"
+  },
+  "variants": ["default", "hover"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

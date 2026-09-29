@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 第 2 步：组件契约 + 组件清单
+
+- 确认 `docs/COMPONENTS.md` 已存在，作为组件开发的唯一事实来源；本次仅把 Button / Input / Card 标为 🔄
+- 新增契约：`src/contracts/button.contract.json`、`src/contracts/input.contract.json`、`src/contracts/card.contract.json`
+- 设计决策：契约统一含 `tokens`、`variants`、`allowed-edit: none`、`forbidden: ["raw-hex", "raw-padding"]`；实现不得另开视觉通道
+- Button 额外声明 `sizes: ["sm", "md", "lg"]`
+
 ### 组件清单
 
 - 新增 `docs/COMPONENTS.md`：按 Element Plus 分类、对照 daisyUI 去重补全，共 83 个组件

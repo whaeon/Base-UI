@@ -5,11 +5,18 @@
 ## 令牌使用规则
 
 - 视觉值（颜色、间距、字号、字重、行高、圆角、阴影、动效时长）必须来自 `src/tokens/`，禁止在组件中写魔法数字或裸色值。
-- 令牌分两层：
-  - **原始令牌（primitive）**：与语义无关的底层值，如 `color.blue.500`、`space.4`。
-  - **语义令牌（semantic）**：表达用途的别名，如 `color.text.primary`、`space.control.padding`。组件只引用语义令牌。
-- 新增令牌先补原始层，再补语义层；禁止跳过原始层直接写死语义值。
-- 令牌命名使用点分路径，文件内用小写短横线或对象嵌套，对外引用保持同一路径。
+- 令牌分三层，定义在 `src/tokens/core.json`，由 `src/tokens/index.ts` 导出：
+  - **品牌令牌（brand）**：与产品品牌绑定的底层值，如 `brand.color.blue-500`、`brand.space.4`。
+  - **语义令牌（semantic）**：表达用途的别名，只引用品牌令牌，如 `semantic.color.primary`。
+  - **组件令牌（component）**：面向具体组件的别名，只引用语义令牌，如 `component.button.primary.background`。
+- 引用优先级：组件实现优先用组件令牌；无对应组件令牌时用语义令牌；禁止直接引用品牌令牌。
+- 新增令牌顺序：品牌 → 语义 → 组件；禁止跳过上层直接写死下层值。
+- 颜色一律使用 HSL 实色值，格式 `hsl(H, S%, L%)`。禁止 `rgba`、`hsla`、`#RRGGBBAA` 及任何带 alpha 通道的写法。阴影同样使用实色 HSL，不用透明叠色。
+- 间距按 4px 基准：`space.0` = 0px，`space.N` = `N * 4px`，范围 `0`–`12`。
+- 圆角档位固定为 `none` / `sm` / `md` / `lg` / `full`。
+- 字体族必须包含中文栈：`PingFang SC`、`Microsoft YaHei`。
+- 字号档位：`xs`–`3xl`；字重：`normal` / `medium` / `semibold` / `bold`。
+- 令牌命名使用点分路径；JSON 键用小写短横线或小驼峰，对外引用保持同一路径。
 - 修改已发布令牌视为破坏性变更，必须走变更流程。
 
 ## 组件开发规则

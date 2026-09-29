@@ -2,6 +2,14 @@
 
 ## 未发布
 
+### 第 1 步：设计令牌
+
+- 新增 `src/tokens/core.json`：品牌 → 语义 → 组件 三层令牌
+- 新增 `src/tokens/index.ts`：将令牌导出为 TypeScript 常量（`tokens` / `brand` / `semantic` / `component`）
+- 设计决策：全部颜色使用 HSL 实色值（`hsl(H, S%, L%)`），禁止 `rgba`、`hsla` 及任何带 alpha 通道的写法；阴影用实色 HSL 模拟层次，不用透明黑
+- 覆盖：语义色 18 项、间距 `space.0`–`space.12`、圆角 5 档、字体族/字号/字重/行高、阴影 `sm` / `md` / `lg`
+- 令牌叶节点合计：136
+
 ### 初始化
 
 - 创建项目骨架：`README.md`、`docs/STATUS.md`、`docs/CONVENTIONS.md`、`docs/CHANGELOG.md`、`.gitignore`

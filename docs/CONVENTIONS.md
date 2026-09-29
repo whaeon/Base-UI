@@ -27,7 +27,8 @@
 2. 实现必须满足契约；新增属性先改契约再改实现。
 3. 组件只组合已有令牌与更小的组件，不在内部发明新的视觉体系。
 4. 每个组件至少覆盖默认、禁用、加载、错误（若适用）等契约中列出的状态。
-5. 组件完成后，必须在 `src/showcase/` 增加可交互示例，并更新 `docs/STATUS.md` 的组件清单与 `README.md` 的组件数。
+5. 组件完成后，必须在 `src/showcase/` 增加可交互示例，并更新 `docs/COMPONENTS.md` 对应行状态、`docs/STATUS.md` 的已完成清单与 `README.md` 的组件数。
+6. 组件范围与优先级以 `docs/COMPONENTS.md` 为准；新增组件先改清单再写契约。
 
 ## 命名规范
 
@@ -37,7 +38,7 @@
 | 组件目录 | 与组件名一致的 PascalCase | `src/components/Button/` |
 | 契约文件 | 与组件名一致 | `src/contracts/Button.md` |
 | 令牌路径 | 小写点分 | `color.text.primary` |
-| 文档与看板 | 大写文件名 | `STATUS.md`、`CONVENTIONS.md` |
+| 文档与看板 | 大写文件名 | `STATUS.md`、`COMPONENTS.md`、`CONVENTIONS.md` |
 | Git 提交 | `[类型] 简述` | `[初始化] 项目骨架与自描述文档` |
 
 提交类型：`初始化`、`令牌`、`契约`、`组件`、`展示`、`文档`、`修复`、`重构`。

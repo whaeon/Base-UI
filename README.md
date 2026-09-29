@@ -12,7 +12,7 @@
 2. 实现组件（`src/components/`）
 3. 在展示站中验收（`src/showcase/`）
 
-进度看板见 `docs/STATUS.md`，设计约定见 `docs/CONVENTIONS.md`。
+进度看板见 `docs/STATUS.md`，组件清单见 `docs/COMPONENTS.md`，设计约定见 `docs/CONVENTIONS.md`。
 
 ## 项目结构
 
@@ -21,6 +21,7 @@
 ├── README.md              # 项目门面
 ├── docs/
 │   ├── STATUS.md          # 进度看板
+│   ├── COMPONENTS.md      # 组件清单
 │   ├── CONVENTIONS.md     # 设计约定
 │   └── CHANGELOG.md       # 更新日志
 └── src/

@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件清单
+
+- 新增 `docs/COMPONENTS.md`：按 Element Plus 分类、对照 daisyUI 去重补全，共 83 个组件
+- 状态按实际进度全部标记为待开始（契约 / 实现 / 展示页均为 0）
+- 去掉规范页与重复项（Border、Color、Text、TimeSelect、TableV2、Accordion、Notification、InfiniteScroll）
+- 补入 Element Plus 缺口与 daisyUI 独有组件（Splitter、Navbar、Chat、Swap 等）
+
 ### 第 1 步：设计令牌
 
 - 新增 `src/tokens/core.json`：品牌 → 语义 → 组件 三层令牌

@@ -1,0 +1,17 @@
+{
+  "component": "toast",
+  "tokens": {
+    "background": "foreground",
+    "text": "primary-foreground",
+    "success-background": "primary",
+    "success-text": "primary-foreground",
+    "error-background": "destructive",
+    "error-text": "destructive-foreground",
+    "radius": "radius.md",
+    "shadow": "shadow.md",
+    "spacing": "space.4"
+  },
+  "variants": ["default", "success", "error"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

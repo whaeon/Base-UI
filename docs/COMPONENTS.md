@@ -2,7 +2,7 @@
 
 参考 Element Plus 分类（基础 / 表单 / 数据展示 / 导航 / 反馈 / 其他），并对照 daisyUI 补齐常用组件、去掉规范页与重复项。
 
-当前实际进度：契约 15（Button / Input / Card / Icon / Select / Checkbox / Radio / Switch / Textarea / Form / Badge / Tag / Avatar / Tabs / Dialog）、实现 15、展示页 15。
+当前实际进度：契约 16（Button / Input / Card / Icon / Select / Checkbox / Radio / Switch / Textarea / Form / Badge / Tag / Avatar / Tabs / Dialog / Toast）、实现 16、展示页 16。
 
 ## 状态图例
 
@@ -20,9 +20,9 @@
 | 表单组件 | 21 | 7 |
 | 数据展示 | 23 | 4 |
 | 导航 | 13 | 1 |
-| 反馈 | 11 | 1 |
+| 反馈 | 11 | 2 |
 | 其他 | 4 | 0 |
-| **合计** | **83** | **15** |
+| **合计** | **83** | **16** |
 
 ## 基础组件（Basic）
 
@@ -129,7 +129,7 @@
 | 组件名 | 状态 | 契约文件 | 组件目录 | 展示页 | 优先级 | 备注 |
 |---|---|---|---|---|---|---|
 | Dialog | ✅ | contracts/dialog.contract.json | components/Dialog/ | /components/dialog | P0 | 契约 + 组件 + 展示页已完成 |
-| Toast | ⬜ | - | - | - | P0 | 轻提示 |
+| Toast | ✅ | contracts/toast.contract.json | components/Toast/ | /components/toast | P0 | 契约 + 组件 + 展示页已完成 |
 | Alert | ⬜ | - | - | - | P0 | 警告提示 |
 | Drawer | ⬜ | - | - | - | P1 | 抽屉 |
 | Tooltip | ⬜ | - | - | - | P1 | 文字提示 |

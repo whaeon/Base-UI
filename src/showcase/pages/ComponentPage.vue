@@ -12,6 +12,7 @@ import switchContract from "../../contracts/switch.contract.json";
 import badgeContract from "../../contracts/badge.contract.json";
 import avatarContract from "../../contracts/avatar.contract.json";
 import dialogContract from "../../contracts/dialog.contract.json";
+import toastContract from "../../contracts/toast.contract.json";
 import tabsContract from "../../contracts/tabs.contract.json";
 import tagContract from "../../contracts/tag.contract.json";
 import formContract from "../../contracts/form.contract.json";
@@ -42,6 +43,8 @@ import { Tabs } from "../../components/Tabs";
 import { tabsStories } from "../../components/Tabs/Tabs.stories";
 import { Dialog } from "../../components/Dialog";
 import { dialogStories } from "../../components/Dialog/Dialog.stories";
+import { Toast } from "../../components/Toast";
+import { toastStories } from "../../components/Toast/Toast.stories";
 import { Tag } from "../../components/Tag";
 import { tagStories } from "../../components/Tag/Tag.stories";
 import { Form, FormItem } from "../../components/Form";
@@ -64,6 +67,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   badge: badgeContract,
   avatar: avatarContract,
   dialog: dialogContract,
+  toast: toastContract,
   tabs: tabsContract,
   tag: tagContract,
   form: formContract,
@@ -82,6 +86,7 @@ const storiesMap = {
   badge: badgeStories,
   avatar: avatarStories,
   dialog: dialogStories,
+  toast: toastStories,
   tabs: tabsStories,
   tag: tagStories,
   form: formStories,
@@ -206,7 +211,20 @@ const tokenEntries = computed(() => {
             当前：{{ tabsValue }}
           </Tabs>
         </template>
-        <template v-else-if="item.slug === 'dialog'">
+        <template v-else-if="item.slug === 'toast'">
+          <Toast v-for="variant in stories.variants" :key="variant" :variant="variant">
+            {{ variant }}
+          </Toast>
+        </template>
+      <template v-else-if="item.slug === 'toast'">
+        <p class="mt-2 text-sm text-muted-foreground">默认 / 成功 / 错误三种轻提示。</p>
+        <div class="mt-4 flex flex-col items-start gap-3 rounded-lg border border-border bg-muted p-6">
+          <Toast>已保存</Toast>
+          <Toast variant="success">操作成功</Toast>
+          <Toast variant="error">操作失败</Toast>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'dialog'">
           <Button v-for="variant in stories.variants" :key="variant" @click="dialogOpen = true">
             {{ variant }}
           </Button>

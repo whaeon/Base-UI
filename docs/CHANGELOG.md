@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Toast
+
+- 新增 `src/contracts/toast.contract.json`
+- 新增 `src/components/Toast/`：`Toast.vue`、`Toast.stories.ts`、`index.ts`
+- 展示页 `/components/toast`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，默认用 `foreground`，成功用 `primary`，错误用 `destructive`，圆角 `radius.md`，阴影 `shadow.md`
+
 ### 组件：Dialog
 
 - 新增 `src/contracts/dialog.contract.json`

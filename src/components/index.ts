@@ -13,3 +13,4 @@ export { Tag } from "./Tag";
 export { Avatar } from "./Avatar";
 export { Tabs } from "./Tabs";
 export { Dialog } from "./Dialog";
+export { Toast } from "./Toast";

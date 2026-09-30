@@ -1,0 +1,15 @@
+{
+  "component": "dialog",
+  "tokens": {
+    "overlay": "foreground",
+    "background": "card",
+    "text": "card-foreground",
+    "border": "border",
+    "radius": "radius.lg",
+    "shadow": "shadow.lg",
+    "spacing": "space.6"
+  },
+  "variants": ["default", "open"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

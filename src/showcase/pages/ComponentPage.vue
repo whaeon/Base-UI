@@ -11,6 +11,7 @@ import selectContract from "../../contracts/select.contract.json";
 import switchContract from "../../contracts/switch.contract.json";
 import badgeContract from "../../contracts/badge.contract.json";
 import avatarContract from "../../contracts/avatar.contract.json";
+import dialogContract from "../../contracts/dialog.contract.json";
 import tabsContract from "../../contracts/tabs.contract.json";
 import tagContract from "../../contracts/tag.contract.json";
 import formContract from "../../contracts/form.contract.json";
@@ -39,6 +40,8 @@ import { Avatar } from "../../components/Avatar";
 import { avatarStories } from "../../components/Avatar/Avatar.stories";
 import { Tabs } from "../../components/Tabs";
 import { tabsStories } from "../../components/Tabs/Tabs.stories";
+import { Dialog } from "../../components/Dialog";
+import { dialogStories } from "../../components/Dialog/Dialog.stories";
 import { Tag } from "../../components/Tag";
 import { tagStories } from "../../components/Tag/Tag.stories";
 import { Form, FormItem } from "../../components/Form";
@@ -60,6 +63,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   switch: switchContract,
   badge: badgeContract,
   avatar: avatarContract,
+  dialog: dialogContract,
   tabs: tabsContract,
   tag: tagContract,
   form: formContract,
@@ -77,6 +81,7 @@ const storiesMap = {
   switch: switchStories,
   badge: badgeStories,
   avatar: avatarStories,
+  dialog: dialogStories,
   tabs: tabsStories,
   tag: tagStories,
   form: formStories,
@@ -91,6 +96,7 @@ const checkboxValue = ref(false);
 const radioValue = ref("a");
 const switchValue = ref(false);
 const textareaValue = ref("");
+const dialogOpen = ref(false);
 const tabsValue = ref("a");
 const tabItems = [
   { label: "概览", value: "a" },
@@ -200,6 +206,18 @@ const tokenEntries = computed(() => {
             当前：{{ tabsValue }}
           </Tabs>
         </template>
+        <template v-else-if="item.slug === 'dialog'">
+          <Button v-for="variant in stories.variants" :key="variant" @click="dialogOpen = true">
+            {{ variant }}
+          </Button>
+          <Dialog v-model:open="dialogOpen" title="确认操作">
+            对话框内容来自 dialog.contract.json 绑定的语义令牌。
+            <template #footer>
+              <Button @click="dialogOpen = false">取消</Button>
+              <Button @click="dialogOpen = false">确认</Button>
+            </template>
+          </Dialog>
+        </template>
       <template v-else-if="item.slug === 'badge'">
         <p class="mt-2 text-sm text-muted-foreground">主色 / 弱化 / 危险三种语义色。</p>
         <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
@@ -232,6 +250,12 @@ const tokenEntries = computed(() => {
           <Tabs v-model="tabsValue" :items="tabItems">
             面板内容：{{ tabsValue }}
           </Tabs>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'dialog'">
+        <p class="mt-2 text-sm text-muted-foreground">点击按钮打开对话框，点击遮罩或操作按钮关闭。</p>
+        <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
+          <Button @click="dialogOpen = true">打开对话框</Button>
         </div>
       </template>
       <template v-else-if="item.slug === 'form'">

@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Dialog
+
+- 新增 `src/contracts/dialog.contract.json`
+- 新增 `src/components/Dialog/`：`Dialog.vue`、`Dialog.stories.ts`、`index.ts`
+- 展示页 `/components/dialog`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，面板用 `card` / `card-foreground` / `radius.lg` / `shadow.lg`，遮罩用 `foreground`
+
 ### 组件：Tabs
 
 - 新增 `src/contracts/tabs.contract.json`

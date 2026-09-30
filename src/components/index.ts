@@ -11,3 +11,4 @@ export { Form, FormItem } from "./Form";
 export { Badge } from "./Badge";
 export { Tag } from "./Tag";
 export { Avatar } from "./Avatar";
+export { Tabs } from "./Tabs";

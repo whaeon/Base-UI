@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Tabs
+
+- 新增 `src/contracts/tabs.contract.json`
+- 新增 `src/components/Tabs/`：`Tabs.vue`、`Tabs.stories.ts`、`index.ts`
+- 展示页 `/components/tabs`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，激活文字用 `foreground`，未激活用 `muted-foreground`，激活边框用 `primary`
+
 ### 组件：Avatar
 
 - 新增 `src/contracts/avatar.contract.json`

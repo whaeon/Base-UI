@@ -1,0 +1,13 @@
+{
+  "component": "tabs",
+  "tokens": {
+    "text": "muted-foreground",
+    "active-text": "foreground",
+    "active-border": "primary",
+    "border": "border",
+    "spacing": "space.4"
+  },
+  "variants": ["default", "active"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

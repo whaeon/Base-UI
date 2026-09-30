@@ -11,6 +11,7 @@ import selectContract from "../../contracts/select.contract.json";
 import switchContract from "../../contracts/switch.contract.json";
 import badgeContract from "../../contracts/badge.contract.json";
 import avatarContract from "../../contracts/avatar.contract.json";
+import tabsContract from "../../contracts/tabs.contract.json";
 import tagContract from "../../contracts/tag.contract.json";
 import formContract from "../../contracts/form.contract.json";
 import textareaContract from "../../contracts/textarea.contract.json";
@@ -36,6 +37,8 @@ import { Badge } from "../../components/Badge";
 import { badgeStories } from "../../components/Badge/Badge.stories";
 import { Avatar } from "../../components/Avatar";
 import { avatarStories } from "../../components/Avatar/Avatar.stories";
+import { Tabs } from "../../components/Tabs";
+import { tabsStories } from "../../components/Tabs/Tabs.stories";
 import { Tag } from "../../components/Tag";
 import { tagStories } from "../../components/Tag/Tag.stories";
 import { Form, FormItem } from "../../components/Form";
@@ -57,6 +60,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   switch: switchContract,
   badge: badgeContract,
   avatar: avatarContract,
+  tabs: tabsContract,
   tag: tagContract,
   form: formContract,
   textarea: textareaContract,
@@ -73,6 +77,7 @@ const storiesMap = {
   switch: switchStories,
   badge: badgeStories,
   avatar: avatarStories,
+  tabs: tabsStories,
   tag: tagStories,
   form: formStories,
   textarea: textareaStories,
@@ -86,6 +91,12 @@ const checkboxValue = ref(false);
 const radioValue = ref("a");
 const switchValue = ref(false);
 const textareaValue = ref("");
+const tabsValue = ref("a");
+const tabItems = [
+  { label: "概览", value: "a" },
+  { label: "详情", value: "b" },
+  { label: "设置", value: "c" },
+];
 const selectValue = ref("");
 const selectOptions = [
   { label: "选项一", value: "one" },
@@ -184,6 +195,11 @@ const tokenEntries = computed(() => {
           <Avatar variant="initials" initials="UI" />
           <Avatar variant="image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%2394a3b8'/%3E%3C/svg%3E" alt="示例" />
         </template>
+        <template v-else-if="item.slug === 'tabs'">
+          <Tabs v-model="tabsValue" :items="tabItems" class="w-full">
+            当前：{{ tabsValue }}
+          </Tabs>
+        </template>
       <template v-else-if="item.slug === 'badge'">
         <p class="mt-2 text-sm text-muted-foreground">主色 / 弱化 / 危险三种语义色。</p>
         <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
@@ -208,6 +224,14 @@ const tokenEntries = computed(() => {
           <Avatar variant="initials" initials="UI" />
           <Avatar size="sm" variant="initials" initials="S" />
           <Avatar size="lg" variant="initials" initials="L" />
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'tabs'">
+        <p class="mt-2 text-sm text-muted-foreground">点击标签切换内容面板。</p>
+        <div class="mt-4 rounded-lg border border-border bg-muted p-6">
+          <Tabs v-model="tabsValue" :items="tabItems">
+            面板内容：{{ tabsValue }}
+          </Tabs>
         </div>
       </template>
       <template v-else-if="item.slug === 'form'">

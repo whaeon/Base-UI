@@ -1,0 +1,17 @@
+{
+  "component": "alert",
+  "tokens": {
+    "background": "accent",
+    "text": "accent-foreground",
+    "border": "primary",
+    "success-background": "accent",
+    "success-text": "accent-foreground",
+    "error-background": "destructive",
+    "error-text": "destructive-foreground",
+    "radius": "radius.md",
+    "spacing": "space.4"
+  },
+  "variants": ["default", "success", "error"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

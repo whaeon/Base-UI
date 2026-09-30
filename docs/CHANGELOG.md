@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Alert
+
+- 新增 `src/contracts/alert.contract.json`
+- 新增 `src/components/Alert/`：`Alert.vue`、`Alert.stories.ts`、`index.ts`
+- 展示页 `/components/alert`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，默认/成功用 `accent` / `primary` 边框，错误用 `destructive`，圆角 `radius.md`
+
 ### 组件：Toast
 
 - 新增 `src/contracts/toast.contract.json`

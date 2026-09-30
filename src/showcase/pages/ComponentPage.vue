@@ -12,6 +12,7 @@ import switchContract from "../../contracts/switch.contract.json";
 import badgeContract from "../../contracts/badge.contract.json";
 import avatarContract from "../../contracts/avatar.contract.json";
 import dialogContract from "../../contracts/dialog.contract.json";
+import alertContract from "../../contracts/alert.contract.json";
 import toastContract from "../../contracts/toast.contract.json";
 import tabsContract from "../../contracts/tabs.contract.json";
 import tagContract from "../../contracts/tag.contract.json";
@@ -45,6 +46,8 @@ import { Dialog } from "../../components/Dialog";
 import { dialogStories } from "../../components/Dialog/Dialog.stories";
 import { Toast } from "../../components/Toast";
 import { toastStories } from "../../components/Toast/Toast.stories";
+import { Alert } from "../../components/Alert";
+import { alertStories } from "../../components/Alert/Alert.stories";
 import { Tag } from "../../components/Tag";
 import { tagStories } from "../../components/Tag/Tag.stories";
 import { Form, FormItem } from "../../components/Form";
@@ -67,6 +70,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   badge: badgeContract,
   avatar: avatarContract,
   dialog: dialogContract,
+  alert: alertContract,
   toast: toastContract,
   tabs: tabsContract,
   tag: tagContract,
@@ -86,6 +90,7 @@ const storiesMap = {
   badge: badgeStories,
   avatar: avatarStories,
   dialog: dialogStories,
+  alert: alertStories,
   toast: toastStories,
   tabs: tabsStories,
   tag: tagStories,
@@ -216,12 +221,27 @@ const tokenEntries = computed(() => {
             {{ variant }}
           </Toast>
         </template>
+        <template v-else-if="item.slug === 'alert'">
+          <div class="flex w-full flex-col gap-3">
+            <Alert v-for="variant in stories.variants" :key="variant" :variant="variant" :title="variant">
+              {{ variant }} 提示内容
+            </Alert>
+          </div>
+        </template>
       <template v-else-if="item.slug === 'toast'">
         <p class="mt-2 text-sm text-muted-foreground">默认 / 成功 / 错误三种轻提示。</p>
         <div class="mt-4 flex flex-col items-start gap-3 rounded-lg border border-border bg-muted p-6">
           <Toast>已保存</Toast>
           <Toast variant="success">操作成功</Toast>
           <Toast variant="error">操作失败</Toast>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'alert'">
+        <p class="mt-2 text-sm text-muted-foreground">默认 / 成功 / 错误三种警告提示。</p>
+        <div class="mt-4 flex flex-col gap-3 rounded-lg border border-border bg-muted p-6">
+          <Alert title="提示">请核对后再提交。</Alert>
+          <Alert variant="success" title="成功">保存完成。</Alert>
+          <Alert variant="error" title="错误">无法提交。</Alert>
         </div>
       </template>
       <template v-else-if="item.slug === 'dialog'">

@@ -9,3 +9,4 @@ export { Switch } from "./Switch";
 export { Textarea } from "./Textarea";
 export { Form, FormItem } from "./Form";
 export { Badge } from "./Badge";
+export { Tag } from "./Tag";

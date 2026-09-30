@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Tag
+
+- 新增 `src/contracts/tag.contract.json`
+- 新增 `src/components/Tag/`：`Tag.vue`、`Tag.stories.ts`、`index.ts`
+- 展示页 `/components/tag`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，默认用 `secondary`，主色用 `primary`，危险用 `destructive`，圆角 `radius.sm`
+
 ### 组件：Badge
 
 - 新增 `src/contracts/badge.contract.json`

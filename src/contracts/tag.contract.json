@@ -1,0 +1,16 @@
+{
+  "component": "tag",
+  "tokens": {
+    "background": "secondary",
+    "text": "secondary-foreground",
+    "primary-background": "primary",
+    "primary-text": "primary-foreground",
+    "destructive-background": "destructive",
+    "destructive-text": "destructive-foreground",
+    "radius": "radius.sm",
+    "spacing-inline": "space.2"
+  },
+  "variants": ["default", "primary", "destructive", "closable"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

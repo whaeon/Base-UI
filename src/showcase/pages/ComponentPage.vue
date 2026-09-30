@@ -10,6 +10,7 @@ import radioContract from "../../contracts/radio.contract.json";
 import selectContract from "../../contracts/select.contract.json";
 import switchContract from "../../contracts/switch.contract.json";
 import badgeContract from "../../contracts/badge.contract.json";
+import tagContract from "../../contracts/tag.contract.json";
 import formContract from "../../contracts/form.contract.json";
 import textareaContract from "../../contracts/textarea.contract.json";
 import { Button } from "../../components/Button";
@@ -32,6 +33,8 @@ import { Textarea } from "../../components/Textarea";
 import { textareaStories } from "../../components/Textarea/Textarea.stories";
 import { Badge } from "../../components/Badge";
 import { badgeStories } from "../../components/Badge/Badge.stories";
+import { Tag } from "../../components/Tag";
+import { tagStories } from "../../components/Tag/Tag.stories";
 import { Form, FormItem } from "../../components/Form";
 import { formStories } from "../../components/Form/Form.stories";
 import { findCatalogItem, parseComponentCatalog } from "../catalog";
@@ -50,6 +53,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   select: selectContract,
   switch: switchContract,
   badge: badgeContract,
+  tag: tagContract,
   form: formContract,
   textarea: textareaContract,
 };
@@ -64,6 +68,7 @@ const storiesMap = {
   select: selectStories,
   switch: switchStories,
   badge: badgeStories,
+  tag: tagStories,
   form: formStories,
   textarea: textareaStories,
 };
@@ -164,12 +169,26 @@ const tokenEntries = computed(() => {
             {{ variant }}
           </Badge>
         </template>
+        <template v-else-if="item.slug === 'tag'">
+          <Tag v-for="variant in stories.variants" :key="variant" :variant="variant">
+            {{ variant }}
+          </Tag>
+        </template>
       <template v-else-if="item.slug === 'badge'">
         <p class="mt-2 text-sm text-muted-foreground">主色 / 弱化 / 危险三种语义色。</p>
         <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
           <Badge>新</Badge>
           <Badge variant="muted">草稿</Badge>
           <Badge variant="destructive">紧急</Badge>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'tag'">
+        <p class="mt-2 text-sm text-muted-foreground">默认 / 主色 / 危险，以及可关闭标签。</p>
+        <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
+          <Tag>默认</Tag>
+          <Tag variant="primary">主色</Tag>
+          <Tag variant="destructive">危险</Tag>
+          <Tag variant="closable">可关闭</Tag>
         </div>
       </template>
       <template v-else-if="item.slug === 'form'">

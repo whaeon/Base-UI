@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Switch
+
+- 新增 `src/contracts/switch.contract.json`
+- 新增 `src/components/Switch/`：`Switch.vue`、`Switch.stories.ts`、`index.ts`
+- 展示页 `/components/switch`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，轨道用 `muted` / `primary`，滑块用 `background`，圆角 `radius.full`，尺寸 `space.4` / `space.6` / `space.10`
+
 ### 组件：Radio
 
 - 新增 `src/contracts/radio.contract.json`

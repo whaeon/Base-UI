@@ -1,0 +1,16 @@
+{
+  "component": "switch",
+  "tokens": {
+    "track": "muted",
+    "checked-track": "primary",
+    "thumb": "background",
+    "focus-ring": "ring",
+    "radius": "radius.full",
+    "track-height": "space.6",
+    "track-width": "space.10",
+    "thumb-size": "space.4"
+  },
+  "variants": ["default", "checked", "disabled"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

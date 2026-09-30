@@ -1,0 +1,18 @@
+{
+  "component": "select",
+  "tokens": {
+    "background": "background",
+    "border": "border",
+    "text": "foreground",
+    "placeholder": "muted-foreground",
+    "focus-ring": "ring",
+    "radius": "radius.md",
+    "popover-background": "popover",
+    "popover-text": "popover-foreground",
+    "popover-shadow": "shadow.md",
+    "hover-option": "accent"
+  },
+  "variants": ["default", "focus", "error", "disabled"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

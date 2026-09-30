@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Select
+
+- 新增 `src/contracts/select.contract.json`
+- 新增 `src/components/Select/`：`Select.vue`、`Select.stories.ts`、`index.ts`
+- 展示页 `/components/select`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，触发器复用 Input 语义色，下拉层用 `popover` / `popover-foreground` / `shadow.md`，选项悬停用 `accent`
+
 ### 组件：Icon
 
 - 新增 `src/contracts/icon.contract.json`

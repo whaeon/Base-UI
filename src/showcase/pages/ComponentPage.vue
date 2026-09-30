@@ -5,6 +5,7 @@ import buttonContract from "../../contracts/button.contract.json";
 import cardContract from "../../contracts/card.contract.json";
 import iconContract from "../../contracts/icon.contract.json";
 import inputContract from "../../contracts/input.contract.json";
+import selectContract from "../../contracts/select.contract.json";
 import { Button } from "../../components/Button";
 import { buttonStories } from "../../components/Button/Button.stories";
 import { Card } from "../../components/Card";
@@ -13,6 +14,8 @@ import { Icon } from "../../components/Icon";
 import { iconStories } from "../../components/Icon/Icon.stories";
 import { Input } from "../../components/Input";
 import { inputStories } from "../../components/Input/Input.stories";
+import { Select } from "../../components/Select";
+import { selectStories } from "../../components/Select/Select.stories";
 import { findCatalogItem, parseComponentCatalog } from "../catalog";
 
 const props = defineProps<{ name: string }>();
@@ -24,6 +27,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   card: cardContract,
   icon: iconContract,
   input: inputContract,
+  select: selectContract,
 };
 
 const storiesMap = {
@@ -31,12 +35,19 @@ const storiesMap = {
   card: cardStories,
   icon: iconStories,
   input: inputStories,
+  select: selectStories,
 };
 
 const contract = computed(() => contractMap[props.name]);
 const stories = computed(() => storiesMap[props.name as keyof typeof storiesMap]);
 const copied = ref(false);
 const inputValue = ref("");
+const selectValue = ref("");
+const selectOptions = [
+  { label: "选项一", value: "one" },
+  { label: "选项二", value: "two" },
+  { label: "选项三", value: "three" },
+];
 
 async function copyExample(code: string) {
   await navigator.clipboard.writeText(code);
@@ -85,6 +96,12 @@ const tokenEntries = computed(() => {
               </svg>
             </Icon>
             <span class="text-xs text-muted-foreground">{{ variant }}</span>
+          </div>
+        </template>
+        <template v-else-if="item.slug === 'select'">
+          <div v-for="variant in stories.variants" :key="variant" class="w-56">
+            <p class="mb-2 text-xs text-muted-foreground">{{ variant }}</p>
+            <Select :variant="variant" :options="selectOptions" :placeholder="variant" />
           </div>
         </template>
       </div>
@@ -157,6 +174,15 @@ const tokenEntries = computed(() => {
         <div class="mt-4 grid gap-4 rounded-lg border border-border bg-muted p-6 sm:grid-cols-2">
           <Card>默认卡片</Card>
           <Card variant="hover">悬停态卡片</Card>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'select'">
+        <p class="mt-2 text-sm text-muted-foreground">点击展开选项、选择一项，或查看错误与禁用态。</p>
+        <div class="mt-4 grid gap-4 rounded-lg border border-border bg-muted p-6 sm:grid-cols-2">
+          <Select v-model="selectValue" :options="selectOptions" placeholder="可选择" />
+          <Select variant="error" :options="selectOptions" placeholder="错误态" />
+          <Select variant="focus" :options="selectOptions" placeholder="聚焦态" />
+          <Select disabled :options="selectOptions" placeholder="禁用态" />
         </div>
       </template>
       <template v-else-if="item.slug === 'icon'">

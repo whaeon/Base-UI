@@ -5,11 +5,14 @@ import buttonContract from "../../contracts/button.contract.json";
 import cardContract from "../../contracts/card.contract.json";
 import iconContract from "../../contracts/icon.contract.json";
 import inputContract from "../../contracts/input.contract.json";
+import checkboxContract from "../../contracts/checkbox.contract.json";
 import selectContract from "../../contracts/select.contract.json";
 import { Button } from "../../components/Button";
 import { buttonStories } from "../../components/Button/Button.stories";
 import { Card } from "../../components/Card";
 import { cardStories } from "../../components/Card/Card.stories";
+import { Checkbox } from "../../components/Checkbox";
+import { checkboxStories } from "../../components/Checkbox/Checkbox.stories";
 import { Icon } from "../../components/Icon";
 import { iconStories } from "../../components/Icon/Icon.stories";
 import { Input } from "../../components/Input";
@@ -26,6 +29,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   button: buttonContract,
   card: cardContract,
   icon: iconContract,
+  checkbox: checkboxContract,
   input: inputContract,
   select: selectContract,
 };
@@ -34,6 +38,7 @@ const storiesMap = {
   button: buttonStories,
   card: cardStories,
   icon: iconStories,
+  checkbox: checkboxStories,
   input: inputStories,
   select: selectStories,
 };
@@ -42,6 +47,7 @@ const contract = computed(() => contractMap[props.name]);
 const stories = computed(() => storiesMap[props.name as keyof typeof storiesMap]);
 const copied = ref(false);
 const inputValue = ref("");
+const checkboxValue = ref(false);
 const selectValue = ref("");
 const selectOptions = [
   { label: "选项一", value: "one" },
@@ -103,6 +109,11 @@ const tokenEntries = computed(() => {
             <p class="mb-2 text-xs text-muted-foreground">{{ variant }}</p>
             <Select :variant="variant" :options="selectOptions" :placeholder="variant" />
           </div>
+        </template>
+        <template v-else-if="item.slug === 'checkbox'">
+          <Checkbox v-for="variant in stories.variants" :key="variant" :variant="variant">
+            {{ variant }}
+          </Checkbox>
         </template>
       </div>
     </section>
@@ -183,6 +194,15 @@ const tokenEntries = computed(() => {
           <Select variant="error" :options="selectOptions" placeholder="错误态" />
           <Select variant="focus" :options="selectOptions" placeholder="聚焦态" />
           <Select disabled :options="selectOptions" placeholder="禁用态" />
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'checkbox'">
+        <p class="mt-2 text-sm text-muted-foreground">点击切换选中，或查看半选与禁用态。</p>
+        <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
+          <Checkbox v-model="checkboxValue">可切换</Checkbox>
+          <Checkbox variant="checked">已选中</Checkbox>
+          <Checkbox variant="indeterminate">部分选中</Checkbox>
+          <Checkbox disabled>禁用</Checkbox>
         </div>
       </template>
       <template v-else-if="item.slug === 'icon'">

@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Checkbox
+
+- 新增 `src/contracts/checkbox.contract.json`
+- 新增 `src/components/Checkbox/`：`Checkbox.vue`、`Checkbox.stories.ts`、`index.ts`
+- 展示页 `/components/checkbox`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，未选中用 `background` / `border`，选中用 `primary` / `primary-foreground`，尺寸用 `space.4`，圆角用 `radius.sm`
+
 ### 组件：Select
 
 - 新增 `src/contracts/select.contract.json`

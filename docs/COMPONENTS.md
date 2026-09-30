@@ -2,7 +2,7 @@
 
 参考 Element Plus 分类（基础 / 表单 / 数据展示 / 导航 / 反馈 / 其他），并对照 daisyUI 补齐常用组件、去掉规范页与重复项。
 
-当前实际进度：契约 5（Button / Input / Card / Icon / Select）、实现 5、展示页 5。
+当前实际进度：契约 6（Button / Input / Card / Icon / Select / Checkbox）、实现 6、展示页 6。
 
 ## 状态图例
 
@@ -17,12 +17,12 @@
 | 分类 | 数量 | 已完成 |
 |------|------|--------|
 | 基础组件 | 11 | 2 |
-| 表单组件 | 21 | 2 |
+| 表单组件 | 21 | 3 |
 | 数据展示 | 23 | 1 |
 | 导航 | 13 | 0 |
 | 反馈 | 11 | 0 |
 | 其他 | 4 | 0 |
-| **合计** | **83** | **5** |
+| **合计** | **83** | **6** |
 
 ## 基础组件（Basic）
 
@@ -52,7 +52,7 @@
 |---|---|---|---|---|---|---|
 | Input | ✅ | contracts/input.contract.json | components/Input/ | /components/input | P0 | 契约 + 组件 + 展示页已完成 |
 | Select | ✅ | contracts/select.contract.json | components/Select/ | /components/select | P0 | 契约 + 组件 + 展示页已完成 |
-| Checkbox | ⬜ | - | - | - | P0 | 复选框 |
+| Checkbox | ✅ | contracts/checkbox.contract.json | components/Checkbox/ | /components/checkbox | P0 | 契约 + 组件 + 展示页已完成 |
 | Radio | ⬜ | - | - | - | P0 | 单选框 |
 | Switch | ⬜ | - | - | - | P0 | 开关 |
 | Textarea | ⬜ | - | - | - | P0 | 多行文本 |

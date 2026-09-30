@@ -2,6 +2,14 @@
 
 ## 未发布
 
+### 第 3 步：Button 组件 + 展示站骨架
+
+- 新增 `src/components/Button/`：`Button.vue`、`Button.stories.ts`、`index.ts`
+- 新增展示站骨架：`src/showcase/`（Vue Router，`/` 概览，`/components/:name` 详情）
+- 设计决策：左侧导航从 `docs/COMPONENTS.md` 解析分类与状态，仅 ✅ 组件可点击进入详情页
+- 展示站与组件共用 `tailwind.config.js` 中从 `src/tokens/core.json` 注入的语义色、间距、圆角、字体、阴影
+- 启动：`npm install` 后执行 `npm run dev`
+
 ### 第 2 步：组件契约 + 组件清单
 
 - 确认 `docs/COMPONENTS.md` 已存在，作为组件开发的唯一事实来源；本次仅把 Button / Input / Card 标为 🔄

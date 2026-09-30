@@ -6,10 +6,14 @@
 
 ## 快速开始
 
-当前处于**组件契约**阶段。令牌与三份基础契约已落地，尚无可运行的组件。后续步骤：
+当前处于 **Button 组件 + 展示站骨架** 阶段。
 
-1. 实现 Button、Input、Card（`src/components/`）
-2. 在展示站中验收（`src/showcase/`）
+```bash
+npm install
+npm run dev
+```
+
+浏览器打开开发服务器后，访问 `/` 查看概览，访问 `/components/button` 查看 Button。
 
 进度看板见 `docs/STATUS.md`，组件清单见 `docs/COMPONENTS.md`，设计约定见 `docs/CONVENTIONS.md`。
 
@@ -34,7 +38,7 @@
 
 | 项 | 值 |
 |----|----|
-| 阶段 | 组件契约 |
-| 组件数 | 0 |
+| 阶段 | Button 组件 + 展示站骨架 |
+| 组件数 | 1 |
 | 契约数 | 3 |
 | 令牌数 | 136 |

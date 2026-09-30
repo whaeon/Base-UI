@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Form
+
+- 新增 `src/contracts/form.contract.json`
+- 新增 `src/components/Form/`：`Form.vue`、`FormItem.vue`、`Form.stories.ts`、`index.ts`
+- 展示页 `/components/form`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，标签用 `foreground`，错误文案用 `destructive`，间距用 `space.4`
+
 ### 组件：Textarea
 
 - 新增 `src/contracts/textarea.contract.json`

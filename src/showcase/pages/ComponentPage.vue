@@ -9,6 +9,7 @@ import checkboxContract from "../../contracts/checkbox.contract.json";
 import radioContract from "../../contracts/radio.contract.json";
 import selectContract from "../../contracts/select.contract.json";
 import switchContract from "../../contracts/switch.contract.json";
+import formContract from "../../contracts/form.contract.json";
 import textareaContract from "../../contracts/textarea.contract.json";
 import { Button } from "../../components/Button";
 import { buttonStories } from "../../components/Button/Button.stories";
@@ -28,6 +29,8 @@ import { Switch } from "../../components/Switch";
 import { switchStories } from "../../components/Switch/Switch.stories";
 import { Textarea } from "../../components/Textarea";
 import { textareaStories } from "../../components/Textarea/Textarea.stories";
+import { Form, FormItem } from "../../components/Form";
+import { formStories } from "../../components/Form/Form.stories";
 import { findCatalogItem, parseComponentCatalog } from "../catalog";
 
 const props = defineProps<{ name: string }>();
@@ -43,6 +46,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   radio: radioContract,
   select: selectContract,
   switch: switchContract,
+  form: formContract,
   textarea: textareaContract,
 };
 
@@ -55,6 +59,7 @@ const storiesMap = {
   radio: radioStories,
   select: selectStories,
   switch: switchStories,
+  form: formStories,
   textarea: textareaStories,
 };
 
@@ -148,6 +153,18 @@ const tokenEntries = computed(() => {
             <p class="mb-2 text-xs text-muted-foreground">{{ variant }}</p>
             <Textarea :variant="variant" :placeholder="variant" />
           </div>
+        </template>
+        <template v-else-if="item.slug === 'form'">
+          <Form class="w-56">
+            <FormItem label="默认">
+              <Input placeholder="用户名" />
+            </FormItem>
+          </Form>
+          <Form variant="error" class="w-56">
+            <FormItem label="错误" error="必填项">
+              <Input variant="error" placeholder="用户名" />
+            </FormItem>
+          </Form>
         </template>
       </div>
     </section>
@@ -263,6 +280,24 @@ const tokenEntries = computed(() => {
           <Textarea variant="error" placeholder="错误态" />
           <Textarea variant="focus" placeholder="聚焦态" />
           <Textarea disabled placeholder="禁用态" />
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'form'">
+        <p class="mt-2 text-sm text-muted-foreground">表单项带标签，错误态显示校验文案。</p>
+        <div class="mt-4 grid gap-4 rounded-lg border border-border bg-muted p-6 sm:grid-cols-2">
+          <Form>
+            <FormItem label="用户名">
+              <Input placeholder="请输入" />
+            </FormItem>
+            <FormItem label="简介">
+              <Textarea placeholder="选填" />
+            </FormItem>
+          </Form>
+          <Form variant="error">
+            <FormItem label="邮箱" error="格式不正确">
+              <Input variant="error" placeholder="name@example.com" />
+            </FormItem>
+          </Form>
         </div>
       </template>
       <template v-else-if="item.slug === 'icon'">

@@ -2,7 +2,7 @@
 
 参考 Element Plus 分类（基础 / 表单 / 数据展示 / 导航 / 反馈 / 其他），并对照 daisyUI 补齐常用组件、去掉规范页与重复项。
 
-当前实际进度：契约 9（Button / Input / Card / Icon / Select / Checkbox / Radio / Switch / Textarea）、实现 9、展示页 9。
+当前实际进度：契约 10（Button / Input / Card / Icon / Select / Checkbox / Radio / Switch / Textarea / Form）、实现 10、展示页 10。
 
 ## 状态图例
 
@@ -17,12 +17,12 @@
 | 分类 | 数量 | 已完成 |
 |------|------|--------|
 | 基础组件 | 11 | 2 |
-| 表单组件 | 21 | 6 |
+| 表单组件 | 21 | 7 |
 | 数据展示 | 23 | 1 |
 | 导航 | 13 | 0 |
 | 反馈 | 11 | 0 |
 | 其他 | 4 | 0 |
-| **合计** | **83** | **9** |
+| **合计** | **83** | **10** |
 
 ## 基础组件（Basic）
 
@@ -56,7 +56,7 @@
 | Radio | ✅ | contracts/radio.contract.json | components/Radio/ | /components/radio | P0 | 契约 + 组件 + 展示页已完成 |
 | Switch | ✅ | contracts/switch.contract.json | components/Switch/ | /components/switch | P0 | 契约 + 组件 + 展示页已完成 |
 | Textarea | ✅ | contracts/textarea.contract.json | components/Textarea/ | /components/textarea | P0 | 契约 + 组件 + 展示页已完成 |
-| Form | ⬜ | - | - | - | P0 | 表单容器与校验 |
+| Form | ✅ | contracts/form.contract.json | components/Form/ | /components/form | P0 | 契约 + 组件 + 展示页已完成 |
 | DatePicker | ⬜ | - | - | - | P1 | 日期选择器 |
 | Upload | ⬜ | - | - | - | P1 | 文件上传 |
 | FileInput | ⬜ | - | - | - | P1 | 原生文件选择（daisyUI） |

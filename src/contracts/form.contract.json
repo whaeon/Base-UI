@@ -1,0 +1,12 @@
+{
+  "component": "form",
+  "tokens": {
+    "text": "foreground",
+    "label": "foreground",
+    "error": "destructive",
+    "spacing": "space.4"
+  },
+  "variants": ["default", "error"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

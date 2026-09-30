@@ -6,6 +6,8 @@
     "border": "border",
     "radius": "radius.lg",
     "shadow": "shadow.md",
+    "hover-background": "accent",
+    "hover-shadow": "shadow.lg",
     "spacing": "space.6"
   },
   "variants": ["default", "hover"],

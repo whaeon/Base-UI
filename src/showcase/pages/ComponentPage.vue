@@ -55,7 +55,7 @@ const tokenEntries = computed(() => {
 
     <section class="mt-8">
       <h2 class="text-xl font-semibold">变体预览</h2>
-      <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-card p-6">
+        <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
         <template v-if="item.slug === 'button'">
           <Button v-for="variant in stories.variants" :key="variant" :variant="variant">
             {{ variant }}
@@ -77,7 +77,7 @@ const tokenEntries = computed(() => {
 
     <section v-if="'sizes' in stories && stories.sizes" class="mt-8">
       <h2 class="text-xl font-semibold">尺寸</h2>
-      <div class="mt-4 flex flex-wrap items-end gap-4 rounded-lg border border-border bg-card p-6">
+      <div class="mt-4 flex flex-wrap items-end gap-4 rounded-lg border border-border bg-muted p-6">
         <Button v-for="size in stories.sizes" :key="size" :size="size">{{ size }}</Button>
       </div>
     </section>
@@ -110,7 +110,7 @@ const tokenEntries = computed(() => {
       <h2 class="text-xl font-semibold">交互状态</h2>
       <template v-if="item.slug === 'button'">
         <p class="mt-2 text-sm text-muted-foreground">将指针移到按钮上、用键盘 Tab 聚焦，或查看禁用态。</p>
-        <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-card p-6">
+      <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
           <Button>Hover / Focus</Button>
           <Button disabled>Disabled</Button>
           <Button loading>Loading</Button>
@@ -118,7 +118,7 @@ const tokenEntries = computed(() => {
       </template>
       <template v-else-if="item.slug === 'input'">
         <p class="mt-2 text-sm text-muted-foreground">输入文字、聚焦输入框，或查看错误与禁用态。</p>
-        <div class="mt-4 grid gap-4 rounded-lg border border-border bg-card p-6 sm:grid-cols-2">
+        <div class="mt-4 grid gap-4 rounded-lg border border-border bg-muted p-6 sm:grid-cols-2">
           <Input v-model="inputValue" placeholder="可输入" />
           <Input variant="error" placeholder="错误态" />
           <Input variant="focus" placeholder="聚焦态" />
@@ -127,7 +127,7 @@ const tokenEntries = computed(() => {
       </template>
       <template v-else-if="item.slug === 'card'">
         <p class="mt-2 text-sm text-muted-foreground">将指针移到卡片上查看悬停态。</p>
-        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <div class="mt-4 grid gap-4 rounded-lg border border-border bg-muted p-6 sm:grid-cols-2">
           <Card>默认卡片</Card>
           <Card variant="hover">悬停态卡片</Card>
         </div>

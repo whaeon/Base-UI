@@ -4,6 +4,7 @@
     "background": "primary",
     "text": "primary-foreground",
     "focus-ring": "ring",
+    "hover-background": "foreground",
     "spacing-inline": "space.4",
     "radius": "radius.md"
   },

@@ -2,6 +2,12 @@
 
 ## 未发布
 
+### 修复：展示站 hover 态不可见
+
+- Button hover/active 改用 `foreground`，与 `primary` 形成可见对比
+- Card hover 变体与真实悬停使用 `accent` 背景
+- 展示页预览画布改为 `muted`，避免白底卡片叠在白底上看不见
+
 ### 组件：Card
 
 - 新增 `src/components/Card/`：`Card.vue`、`Card.stories.ts`、`index.ts`

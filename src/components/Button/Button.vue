@@ -35,12 +35,12 @@ const sizeClass = computed(() => {
 
 const stateClass = computed(() => {
   if (props.variant === "hover") {
-    return "bg-accent-foreground text-primary-foreground";
+    return "bg-foreground text-primary-foreground";
   }
   if (props.variant === "active") {
-    return "bg-accent-foreground text-primary-foreground";
+    return "bg-foreground text-primary-foreground";
   }
-  return "bg-primary text-primary-foreground hover:bg-accent-foreground active:bg-accent-foreground";
+  return "bg-primary text-primary-foreground hover:bg-foreground active:bg-foreground";
 });
 
 const rootClass = computed(() =>

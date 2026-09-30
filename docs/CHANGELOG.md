@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Icon
+
+- 新增 `src/contracts/icon.contract.json`
+- 新增 `src/components/Icon/`：`Icon.vue`、`Icon.stories.ts`、`index.ts`
+- 展示页 `/components/icon`：变体预览、尺寸、令牌列表、代码示例、交互状态
+- 未新增令牌，颜色用 `foreground` / `muted-foreground` / `primary`，尺寸用 `space.4` / `space.5` / `space.6`
+
 ### 修复：展示站 hover 态不可见
 
 - Button hover/active 改用 `foreground`，与 `primary` 形成可见对比

@@ -3,11 +3,14 @@ import { computed, ref } from "vue";
 import catalogMarkdown from "../../../docs/COMPONENTS.md?raw";
 import buttonContract from "../../contracts/button.contract.json";
 import cardContract from "../../contracts/card.contract.json";
+import iconContract from "../../contracts/icon.contract.json";
 import inputContract from "../../contracts/input.contract.json";
 import { Button } from "../../components/Button";
 import { buttonStories } from "../../components/Button/Button.stories";
 import { Card } from "../../components/Card";
 import { cardStories } from "../../components/Card/Card.stories";
+import { Icon } from "../../components/Icon";
+import { iconStories } from "../../components/Icon/Icon.stories";
 import { Input } from "../../components/Input";
 import { inputStories } from "../../components/Input/Input.stories";
 import { findCatalogItem, parseComponentCatalog } from "../catalog";
@@ -19,12 +22,14 @@ const item = computed(() => findCatalogItem(groups, props.name));
 const contractMap: Record<string, Record<string, unknown>> = {
   button: buttonContract,
   card: cardContract,
+  icon: iconContract,
   input: inputContract,
 };
 
 const storiesMap = {
   button: buttonStories,
   card: cardStories,
+  icon: iconStories,
   input: inputStories,
 };
 
@@ -72,13 +77,35 @@ const tokenEntries = computed(() => {
             {{ variant }}
           </Card>
         </template>
+        <template v-else-if="item.slug === 'icon'">
+          <div v-for="variant in stories.variants" :key="variant" class="flex flex-col items-center gap-2">
+            <Icon :variant="variant" :label="variant">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12l5 5L20 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </Icon>
+            <span class="text-xs text-muted-foreground">{{ variant }}</span>
+          </div>
+        </template>
       </div>
     </section>
 
     <section v-if="'sizes' in stories && stories.sizes" class="mt-8">
       <h2 class="text-xl font-semibold">尺寸</h2>
       <div class="mt-4 flex flex-wrap items-end gap-4 rounded-lg border border-border bg-muted p-6">
-        <Button v-for="size in stories.sizes" :key="size" :size="size">{{ size }}</Button>
+        <template v-if="item.slug === 'button'">
+          <Button v-for="size in stories.sizes" :key="size" :size="size">{{ size }}</Button>
+        </template>
+        <template v-else-if="item.slug === 'icon'">
+          <div v-for="size in stories.sizes" :key="size" class="flex flex-col items-center gap-2">
+            <Icon :size="size" :label="size">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12l5 5L20 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </Icon>
+            <span class="text-xs text-muted-foreground">{{ size }}</span>
+          </div>
+        </template>
       </div>
     </section>
 
@@ -130,6 +157,31 @@ const tokenEntries = computed(() => {
         <div class="mt-4 grid gap-4 rounded-lg border border-border bg-muted p-6 sm:grid-cols-2">
           <Card>默认卡片</Card>
           <Card variant="hover">悬停态卡片</Card>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'icon'">
+        <p class="mt-2 text-sm text-muted-foreground">默认 / 弱化 / 主色 / 禁用四种颜色，以及三种尺寸。</p>
+        <div class="mt-4 flex flex-wrap items-center gap-6 rounded-lg border border-border bg-muted p-6">
+          <Icon label="默认">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M5 12l5 5L20 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </Icon>
+          <Icon variant="muted" label="弱化">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="8" stroke-width="2" />
+            </svg>
+          </Icon>
+          <Icon variant="primary" label="主色">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </Icon>
+          <Icon variant="disabled" label="禁用">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M6 6l12 12M18 6L6 18" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </Icon>
         </div>
       </template>
     </section>

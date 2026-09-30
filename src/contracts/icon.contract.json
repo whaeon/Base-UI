@@ -1,0 +1,15 @@
+{
+  "component": "icon",
+  "tokens": {
+    "color": "foreground",
+    "muted": "muted-foreground",
+    "primary": "primary",
+    "size": "space.5",
+    "size-sm": "space.4",
+    "size-lg": "space.6"
+  },
+  "variants": ["default", "muted", "primary", "disabled"],
+  "sizes": ["sm", "md", "lg"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

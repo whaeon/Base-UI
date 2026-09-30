@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Textarea
+
+- 新增 `src/contracts/textarea.contract.json`
+- 新增 `src/components/Textarea/`：`Textarea.vue`、`Textarea.stories.ts`、`index.ts`
+- 展示页 `/components/textarea`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，复用 Input 语义色：`background` / `border` / `foreground` / `muted-foreground` / `ring` / `radius.md`
+
 ### 组件：Switch
 
 - 新增 `src/contracts/switch.contract.json`

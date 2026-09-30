@@ -9,6 +9,7 @@ import checkboxContract from "../../contracts/checkbox.contract.json";
 import radioContract from "../../contracts/radio.contract.json";
 import selectContract from "../../contracts/select.contract.json";
 import switchContract from "../../contracts/switch.contract.json";
+import textareaContract from "../../contracts/textarea.contract.json";
 import { Button } from "../../components/Button";
 import { buttonStories } from "../../components/Button/Button.stories";
 import { Card } from "../../components/Card";
@@ -25,6 +26,8 @@ import { Select } from "../../components/Select";
 import { selectStories } from "../../components/Select/Select.stories";
 import { Switch } from "../../components/Switch";
 import { switchStories } from "../../components/Switch/Switch.stories";
+import { Textarea } from "../../components/Textarea";
+import { textareaStories } from "../../components/Textarea/Textarea.stories";
 import { findCatalogItem, parseComponentCatalog } from "../catalog";
 
 const props = defineProps<{ name: string }>();
@@ -40,6 +43,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   radio: radioContract,
   select: selectContract,
   switch: switchContract,
+  textarea: textareaContract,
 };
 
 const storiesMap = {
@@ -51,6 +55,7 @@ const storiesMap = {
   radio: radioStories,
   select: selectStories,
   switch: switchStories,
+  textarea: textareaStories,
 };
 
 const contract = computed(() => contractMap[props.name]);
@@ -60,6 +65,7 @@ const inputValue = ref("");
 const checkboxValue = ref(false);
 const radioValue = ref("a");
 const switchValue = ref(false);
+const textareaValue = ref("");
 const selectValue = ref("");
 const selectOptions = [
   { label: "选项一", value: "one" },
@@ -136,6 +142,12 @@ const tokenEntries = computed(() => {
           <Switch v-for="variant in stories.variants" :key="variant" :variant="variant">
             {{ variant }}
           </Switch>
+        </template>
+        <template v-else-if="item.slug === 'textarea'">
+          <div v-for="variant in stories.variants" :key="variant" class="w-56">
+            <p class="mb-2 text-xs text-muted-foreground">{{ variant }}</p>
+            <Textarea :variant="variant" :placeholder="variant" />
+          </div>
         </template>
       </div>
     </section>
@@ -242,6 +254,15 @@ const tokenEntries = computed(() => {
           <Switch v-model="switchValue">可切换</Switch>
           <Switch variant="checked">已开启</Switch>
           <Switch disabled>禁用</Switch>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'textarea'">
+        <p class="mt-2 text-sm text-muted-foreground">输入多行文字、聚焦，或查看错误与禁用态。</p>
+        <div class="mt-4 grid gap-4 rounded-lg border border-border bg-muted p-6 sm:grid-cols-2">
+          <Textarea v-model="textareaValue" placeholder="可输入" />
+          <Textarea variant="error" placeholder="错误态" />
+          <Textarea variant="focus" placeholder="聚焦态" />
+          <Textarea disabled placeholder="禁用态" />
         </div>
       </template>
       <template v-else-if="item.slug === 'icon'">

@@ -2,6 +2,12 @@
 
 ## 未发布
 
+### 组件：Input
+
+- 新增 `src/components/Input/`：`Input.vue`、`Input.stories.ts`、`index.ts`
+- 展示页 `/components/input`：变体预览、令牌列表、代码示例、交互状态
+- 契约沿用 `src/contracts/input.contract.json`，未新增令牌
+
 ### 第 3 步：Button 组件 + 展示站骨架
 
 - 新增 `src/components/Button/`：`Button.vue`、`Button.stories.ts`、`index.ts`

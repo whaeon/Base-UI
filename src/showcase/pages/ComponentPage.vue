@@ -2,8 +2,11 @@
 import { computed, ref } from "vue";
 import catalogMarkdown from "../../../docs/COMPONENTS.md?raw";
 import buttonContract from "../../contracts/button.contract.json";
+import inputContract from "../../contracts/input.contract.json";
 import { Button } from "../../components/Button";
 import { buttonStories } from "../../components/Button/Button.stories";
+import { Input } from "../../components/Input";
+import { inputStories } from "../../components/Input/Input.stories";
 import { findCatalogItem, parseComponentCatalog } from "../catalog";
 
 const props = defineProps<{ name: string }>();
@@ -12,15 +15,18 @@ const item = computed(() => findCatalogItem(groups, props.name));
 
 const contractMap: Record<string, Record<string, unknown>> = {
   button: buttonContract,
+  input: inputContract,
 };
 
 const storiesMap = {
   button: buttonStories,
+  input: inputStories,
 };
 
 const contract = computed(() => contractMap[props.name]);
 const stories = computed(() => storiesMap[props.name as keyof typeof storiesMap]);
 const copied = ref(false);
+const inputValue = ref("");
 
 async function copyExample(code: string) {
   await navigator.clipboard.writeText(code);
@@ -45,13 +51,21 @@ const tokenEntries = computed(() => {
     <section class="mt-8">
       <h2 class="text-xl font-semibold">变体预览</h2>
       <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-card p-6">
-        <Button v-for="variant in stories.variants" :key="variant" :variant="variant">
-          {{ variant }}
-        </Button>
+        <template v-if="item.slug === 'button'">
+          <Button v-for="variant in stories.variants" :key="variant" :variant="variant">
+            {{ variant }}
+          </Button>
+        </template>
+        <template v-else-if="item.slug === 'input'">
+          <div v-for="variant in stories.variants" :key="variant" class="w-56">
+            <p class="mb-2 text-xs text-muted-foreground">{{ variant }}</p>
+            <Input :variant="variant" :placeholder="variant" />
+          </div>
+        </template>
       </div>
     </section>
 
-    <section class="mt-8">
+    <section v-if="'sizes' in stories && stories.sizes" class="mt-8">
       <h2 class="text-xl font-semibold">尺寸</h2>
       <div class="mt-4 flex flex-wrap items-end gap-4 rounded-lg border border-border bg-card p-6">
         <Button v-for="size in stories.sizes" :key="size" :size="size">{{ size }}</Button>
@@ -84,12 +98,23 @@ const tokenEntries = computed(() => {
 
     <section class="mt-8">
       <h2 class="text-xl font-semibold">交互状态</h2>
-      <p class="mt-2 text-sm text-muted-foreground">将指针移到按钮上、用键盘 Tab 聚焦，或查看禁用态。</p>
-      <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-card p-6">
-        <Button>Hover / Focus</Button>
-        <Button disabled>Disabled</Button>
-        <Button loading>Loading</Button>
-      </div>
+      <template v-if="item.slug === 'button'">
+        <p class="mt-2 text-sm text-muted-foreground">将指针移到按钮上、用键盘 Tab 聚焦，或查看禁用态。</p>
+        <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-card p-6">
+          <Button>Hover / Focus</Button>
+          <Button disabled>Disabled</Button>
+          <Button loading>Loading</Button>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'input'">
+        <p class="mt-2 text-sm text-muted-foreground">输入文字、聚焦输入框，或查看错误与禁用态。</p>
+        <div class="mt-4 grid gap-4 rounded-lg border border-border bg-card p-6 sm:grid-cols-2">
+          <Input v-model="inputValue" placeholder="可输入" />
+          <Input variant="error" placeholder="错误态" />
+          <Input variant="focus" placeholder="聚焦态" />
+          <Input disabled placeholder="禁用态" />
+        </div>
+      </template>
     </section>
   </section>
 

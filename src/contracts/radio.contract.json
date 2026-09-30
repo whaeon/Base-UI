@@ -1,0 +1,16 @@
+{
+  "component": "radio",
+  "tokens": {
+    "background": "background",
+    "border": "border",
+    "text": "foreground",
+    "checked-background": "primary",
+    "checked-text": "primary-foreground",
+    "focus-ring": "ring",
+    "radius": "radius.full",
+    "size": "space.4"
+  },
+  "variants": ["default", "checked", "disabled"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

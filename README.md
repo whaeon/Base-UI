@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-浏览器打开开发服务器后，访问 `/` 查看概览，访问 `/components/button`、`/components/input`、`/components/card`、`/components/icon`、`/components/select` 或 `/components/checkbox` 查看已完成组件。
+浏览器打开开发服务器后，访问 `/` 查看概览，访问 `/components/button`、`/components/input`、`/components/card`、`/components/icon`、`/components/select`、`/components/checkbox` 或 `/components/radio` 查看已完成组件。
 
 进度看板见 `docs/STATUS.md`，组件清单见 `docs/COMPONENTS.md`，设计约定见 `docs/CONVENTIONS.md`。
 
@@ -39,6 +39,6 @@ npm run dev
 | 项 | 值 |
 |----|----|
 | 阶段 | 组件开发循环 |
-| 组件数 | 6 |
-| 契约数 | 6 |
+| 组件数 | 7 |
+| 契约数 | 7 |
 | 令牌数 | 136 |

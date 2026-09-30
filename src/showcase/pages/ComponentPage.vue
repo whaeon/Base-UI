@@ -6,6 +6,7 @@ import cardContract from "../../contracts/card.contract.json";
 import iconContract from "../../contracts/icon.contract.json";
 import inputContract from "../../contracts/input.contract.json";
 import checkboxContract from "../../contracts/checkbox.contract.json";
+import radioContract from "../../contracts/radio.contract.json";
 import selectContract from "../../contracts/select.contract.json";
 import { Button } from "../../components/Button";
 import { buttonStories } from "../../components/Button/Button.stories";
@@ -17,6 +18,8 @@ import { Icon } from "../../components/Icon";
 import { iconStories } from "../../components/Icon/Icon.stories";
 import { Input } from "../../components/Input";
 import { inputStories } from "../../components/Input/Input.stories";
+import { Radio } from "../../components/Radio";
+import { radioStories } from "../../components/Radio/Radio.stories";
 import { Select } from "../../components/Select";
 import { selectStories } from "../../components/Select/Select.stories";
 import { findCatalogItem, parseComponentCatalog } from "../catalog";
@@ -31,6 +34,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   icon: iconContract,
   checkbox: checkboxContract,
   input: inputContract,
+  radio: radioContract,
   select: selectContract,
 };
 
@@ -40,6 +44,7 @@ const storiesMap = {
   icon: iconStories,
   checkbox: checkboxStories,
   input: inputStories,
+  radio: radioStories,
   select: selectStories,
 };
 
@@ -48,6 +53,7 @@ const stories = computed(() => storiesMap[props.name as keyof typeof storiesMap]
 const copied = ref(false);
 const inputValue = ref("");
 const checkboxValue = ref(false);
+const radioValue = ref("a");
 const selectValue = ref("");
 const selectOptions = [
   { label: "选项一", value: "one" },
@@ -114,6 +120,11 @@ const tokenEntries = computed(() => {
           <Checkbox v-for="variant in stories.variants" :key="variant" :variant="variant">
             {{ variant }}
           </Checkbox>
+        </template>
+        <template v-else-if="item.slug === 'radio'">
+          <Radio v-for="variant in stories.variants" :key="variant" :variant="variant">
+            {{ variant }}
+          </Radio>
         </template>
       </div>
     </section>
@@ -203,6 +214,15 @@ const tokenEntries = computed(() => {
           <Checkbox variant="checked">已选中</Checkbox>
           <Checkbox variant="indeterminate">部分选中</Checkbox>
           <Checkbox disabled>禁用</Checkbox>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'radio'">
+        <p class="mt-2 text-sm text-muted-foreground">同一组内点击切换选中项，或查看禁用态。</p>
+        <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
+          <Radio v-model="radioValue" value="a">选项 A</Radio>
+          <Radio v-model="radioValue" value="b">选项 B</Radio>
+          <Radio variant="checked">已选中</Radio>
+          <Radio disabled>禁用</Radio>
         </div>
       </template>
       <template v-else-if="item.slug === 'icon'">

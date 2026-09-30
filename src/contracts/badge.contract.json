@@ -1,0 +1,16 @@
+{
+  "component": "badge",
+  "tokens": {
+    "background": "primary",
+    "text": "primary-foreground",
+    "muted-background": "muted",
+    "muted-text": "muted-foreground",
+    "destructive-background": "destructive",
+    "destructive-text": "destructive-foreground",
+    "radius": "radius.full",
+    "spacing-inline": "space.2"
+  },
+  "variants": ["default", "muted", "destructive"],
+  "allowed-edit": "none",
+  "forbidden": ["raw-hex", "raw-padding"]
+}

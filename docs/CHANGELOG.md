@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Badge
+
+- 新增 `src/contracts/badge.contract.json`
+- 新增 `src/components/Badge/`：`Badge.vue`、`Badge.stories.ts`、`index.ts`
+- 展示页 `/components/badge`：变体预览、令牌列表、代码示例、交互状态
+- 未新增令牌，默认用 `primary`，弱化用 `muted`，危险用 `destructive`，圆角 `radius.full`
+
 ### 组件：Form
 
 - 新增 `src/contracts/form.contract.json`

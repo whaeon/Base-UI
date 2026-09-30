@@ -10,6 +10,7 @@ import radioContract from "../../contracts/radio.contract.json";
 import selectContract from "../../contracts/select.contract.json";
 import switchContract from "../../contracts/switch.contract.json";
 import badgeContract from "../../contracts/badge.contract.json";
+import avatarContract from "../../contracts/avatar.contract.json";
 import tagContract from "../../contracts/tag.contract.json";
 import formContract from "../../contracts/form.contract.json";
 import textareaContract from "../../contracts/textarea.contract.json";
@@ -33,6 +34,8 @@ import { Textarea } from "../../components/Textarea";
 import { textareaStories } from "../../components/Textarea/Textarea.stories";
 import { Badge } from "../../components/Badge";
 import { badgeStories } from "../../components/Badge/Badge.stories";
+import { Avatar } from "../../components/Avatar";
+import { avatarStories } from "../../components/Avatar/Avatar.stories";
 import { Tag } from "../../components/Tag";
 import { tagStories } from "../../components/Tag/Tag.stories";
 import { Form, FormItem } from "../../components/Form";
@@ -53,6 +56,7 @@ const contractMap: Record<string, Record<string, unknown>> = {
   select: selectContract,
   switch: switchContract,
   badge: badgeContract,
+  avatar: avatarContract,
   tag: tagContract,
   form: formContract,
   textarea: textareaContract,
@@ -68,6 +72,7 @@ const storiesMap = {
   select: selectStories,
   switch: switchStories,
   badge: badgeStories,
+  avatar: avatarStories,
   tag: tagStories,
   form: formStories,
   textarea: textareaStories,
@@ -174,6 +179,11 @@ const tokenEntries = computed(() => {
             {{ variant }}
           </Tag>
         </template>
+        <template v-else-if="item.slug === 'avatar'">
+          <Avatar />
+          <Avatar variant="initials" initials="UI" />
+          <Avatar variant="image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%2394a3b8'/%3E%3C/svg%3E" alt="示例" />
+        </template>
       <template v-else-if="item.slug === 'badge'">
         <p class="mt-2 text-sm text-muted-foreground">主色 / 弱化 / 危险三种语义色。</p>
         <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
@@ -189,6 +199,15 @@ const tokenEntries = computed(() => {
           <Tag variant="primary">主色</Tag>
           <Tag variant="destructive">危险</Tag>
           <Tag variant="closable">可关闭</Tag>
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'avatar'">
+        <p class="mt-2 text-sm text-muted-foreground">占位、首字母与图片三种形态，以及三种尺寸。</p>
+        <div class="mt-4 flex flex-wrap items-center gap-4 rounded-lg border border-border bg-muted p-6">
+          <Avatar />
+          <Avatar variant="initials" initials="UI" />
+          <Avatar size="sm" variant="initials" initials="S" />
+          <Avatar size="lg" variant="initials" initials="L" />
         </div>
       </template>
       <template v-else-if="item.slug === 'form'">
@@ -211,6 +230,12 @@ const tokenEntries = computed(() => {
       <div class="mt-4 flex flex-wrap items-end gap-4 rounded-lg border border-border bg-muted p-6">
         <template v-if="item.slug === 'button'">
           <Button v-for="size in stories.sizes" :key="size" :size="size">{{ size }}</Button>
+        </template>
+        <template v-else-if="item.slug === 'avatar'">
+          <div v-for="size in stories.sizes" :key="size" class="flex flex-col items-center gap-2">
+            <Avatar :size="size" variant="initials" initials="UI" />
+            <span class="text-xs text-muted-foreground">{{ size }}</span>
+          </div>
         </template>
         <template v-else-if="item.slug === 'icon'">
           <div v-for="size in stories.sizes" :key="size" class="flex flex-col items-center gap-2">

@@ -2,7 +2,7 @@
 
 参考 Element Plus 分类（基础 / 表单 / 数据展示 / 导航 / 反馈 / 其他），并对照 daisyUI 补齐常用组件、去掉规范页与重复项。
 
-当前实际进度：契约 12（Button / Input / Card / Icon / Select / Checkbox / Radio / Switch / Textarea / Form / Badge / Tag）、实现 12、展示页 12。
+当前实际进度：契约 13（Button / Input / Card / Icon / Select / Checkbox / Radio / Switch / Textarea / Form / Badge / Tag / Avatar）、实现 13、展示页 13。
 
 ## 状态图例
 
@@ -18,11 +18,11 @@
 |------|------|--------|
 | 基础组件 | 11 | 2 |
 | 表单组件 | 21 | 7 |
-| 数据展示 | 23 | 3 |
+| 数据展示 | 23 | 4 |
 | 导航 | 13 | 0 |
 | 反馈 | 11 | 0 |
 | 其他 | 4 | 0 |
-| **合计** | **83** | **12** |
+| **合计** | **83** | **13** |
 
 ## 基础组件（Basic）
 
@@ -81,7 +81,7 @@
 | Card | ✅ | contracts/card.contract.json | components/Card/ | /components/card | P0 | 契约 + 组件 + 展示页已完成 |
 | Badge | ✅ | contracts/badge.contract.json | components/Badge/ | /components/badge | P0 | 契约 + 组件 + 展示页已完成 |
 | Tag | ✅ | contracts/tag.contract.json | components/Tag/ | /components/tag | P0 | 契约 + 组件 + 展示页已完成 |
-| Avatar | ⬜ | - | - | - | P0 | 头像 |
+| Avatar | ✅ | contracts/avatar.contract.json | components/Avatar/ | /components/avatar | P0 | 契约 + 组件 + 展示页已完成 |
 | Table | ⬜ | - | - | - | P1 | 表格 |
 | List | ⬜ | - | - | - | P1 | 列表 |
 | Collapse | ⬜ | - | - | - | P1 | 折叠面板（覆盖 daisyUI Accordion） |

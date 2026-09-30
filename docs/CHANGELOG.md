@@ -2,6 +2,13 @@
 
 ## 未发布
 
+### 组件：Avatar
+
+- 新增 `src/contracts/avatar.contract.json`
+- 新增 `src/components/Avatar/`：`Avatar.vue`、`Avatar.stories.ts`、`index.ts`
+- 展示页 `/components/avatar`：变体预览、尺寸、令牌列表、代码示例、交互状态
+- 未新增令牌，背景用 `muted`，文字用 `muted-foreground`，圆角 `radius.full`，尺寸 `space.8` / `space.10` / `space.12`
+
 ### 组件：Tag
 
 - 新增 `src/contracts/tag.contract.json`

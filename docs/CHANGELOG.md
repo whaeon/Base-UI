@@ -2,6 +2,12 @@
 
 ## 未发布
 
+### 组件：Card
+
+- 新增 `src/components/Card/`：`Card.vue`、`Card.stories.ts`、`index.ts`
+- 展示页 `/components/card`：变体预览、令牌列表、代码示例、交互状态
+- 契约沿用 `src/contracts/card.contract.json`，未新增令牌
+
 ### 组件：Input
 
 - 新增 `src/components/Input/`：`Input.vue`、`Input.stories.ts`、`index.ts`

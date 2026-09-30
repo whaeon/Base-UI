@@ -2,9 +2,12 @@
 import { computed, ref } from "vue";
 import catalogMarkdown from "../../../docs/COMPONENTS.md?raw";
 import buttonContract from "../../contracts/button.contract.json";
+import cardContract from "../../contracts/card.contract.json";
 import inputContract from "../../contracts/input.contract.json";
 import { Button } from "../../components/Button";
 import { buttonStories } from "../../components/Button/Button.stories";
+import { Card } from "../../components/Card";
+import { cardStories } from "../../components/Card/Card.stories";
 import { Input } from "../../components/Input";
 import { inputStories } from "../../components/Input/Input.stories";
 import { findCatalogItem, parseComponentCatalog } from "../catalog";
@@ -15,11 +18,13 @@ const item = computed(() => findCatalogItem(groups, props.name));
 
 const contractMap: Record<string, Record<string, unknown>> = {
   button: buttonContract,
+  card: cardContract,
   input: inputContract,
 };
 
 const storiesMap = {
   button: buttonStories,
+  card: cardStories,
   input: inputStories,
 };
 
@@ -61,6 +66,11 @@ const tokenEntries = computed(() => {
             <p class="mb-2 text-xs text-muted-foreground">{{ variant }}</p>
             <Input :variant="variant" :placeholder="variant" />
           </div>
+        </template>
+        <template v-else-if="item.slug === 'card'">
+          <Card v-for="variant in stories.variants" :key="variant" :variant="variant" class="w-56">
+            {{ variant }}
+          </Card>
         </template>
       </div>
     </section>
@@ -113,6 +123,13 @@ const tokenEntries = computed(() => {
           <Input variant="error" placeholder="错误态" />
           <Input variant="focus" placeholder="聚焦态" />
           <Input disabled placeholder="禁用态" />
+        </div>
+      </template>
+      <template v-else-if="item.slug === 'card'">
+        <p class="mt-2 text-sm text-muted-foreground">将指针移到卡片上查看悬停态。</p>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          <Card>默认卡片</Card>
+          <Card variant="hover">悬停态卡片</Card>
         </div>
       </template>
     </section>
